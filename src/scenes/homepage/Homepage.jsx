@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect,useState } from "react";
 import mainheader from"../../mainhader.png";
 import Icons from "../../components/Icons";
 import laptop from"../../laptop.png";
@@ -12,36 +12,78 @@ import books from"../../books.png";
 import smartphone from"../../smartphone.png";
 import film from"../../video.png";
 import teddy from"../../teddy.png";
+import Hotproducts from "../../components/Hotproducts";
+import { Link } from "react-router-dom";
 
 export default function Homepage() {
-  const [user,setuser] = useState(null)
-const handleclick = async ()=>{
-  await fetch("http://localhost:6001/upload",{
-      method: "GET",
-    }).then((gg)=>{setuser(gg)})
-}
-  
+  const [Product, setProduct] = useState([])
+
+  const fetchdata = async ()=>{
+    try {
+      const response = await fetch('http://localhost:6001/home');
+      
+      const gg = await response.json();
+      setProduct(gg)
+    } catch (error) {
+
+    }
+  }
+useEffect( () => {
+fetchdata()
+ 
+}, [])
+
   return (
     <>
-      <div className="pl-3 bg-grey-bg w-full h-screen">
+      <div className="pl-3">
         <img src={mainheader} alt="" />
         <h3 className="font-bold mb-5 text-2xl">Popular categories</h3>
         <div className="icons flex gap-6 ">
+        <Link state={{ catagory: "laptop" }} to="/catagory">
         <Icons link={laptop}/>
+        </Link>
+        <Link state={{ catagory: "game" }} to="/catagory">
         <Icons link={console}/>
-        <Icons link={camera}/>
-        <Icons link={headphones}/>
-        <Icons link={bicycle}/>
-        <Icons link={wristwatch}/>
-        <Icons link={tshirt}/>
-        <Icons link={smartphone}/>
-        <Icons link={books}/>
-        <Icons link={film}/>
-        <Icons link={teddy}/>
+        </Link>
+        <Link state={{ catagory: "camera" }} to="/catagory">
+        <Icons link={camera}/></Link>
+        <Link state={{ catagory: "headphone" }} to="/catagory">
+
+        <Icons link={headphones}/></Link>
+        <Link state={{ catagory: "cycle" }} to="/catagory">
+        <Icons link={bicycle}/></Link>
+        <Link state={{ catagory: "watch" }} to="/catagory">
+        <Icons link={wristwatch}/></Link>
+        <Link state={{ catagory: "t shirt" }} to="/catagory">
+        <Icons link={tshirt}/></Link>
+        <Link state={{ catagory: "phone" }} to="/catagory">
+        <Icons link={smartphone}/></Link>
+        <Link state={{ catagory: "books" }} to="/catagory">
+        <Icons link={books}/></Link>
+        
+        <Link state={{ catagory: "film" }} to="/catagory">
+        <Icons link={film}/></Link>
+        <Link state={{ catagory: "teddy" }} to="/catagory">
+        <Icons link={teddy}/></Link>
         </div>
-        <div><h3 className="font-bold mt-5 text-2xl">Hot Deals</h3></div>
-        <button onClick={handleclick}>dfd </button>
-        <img src={user} alt="" />
+        <div><h3 className="font-bold mt-5 text-3xl">Hot Deals 🔥</h3></div>
+
+        {Product?.length > 0 ? (
+        <div className="">
+          {Product.map((images) => (
+            <div className=" flex justify-center">
+           { images.products.map( (df) =>(
+              <Hotproducts key={df._id} product={df} />
+            )
+            )}
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div className="empty">
+          <h2>No movies found</h2>
+        </div>
+      )}
       </div>
     </>
   );

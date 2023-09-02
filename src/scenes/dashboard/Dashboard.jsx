@@ -2,7 +2,7 @@ import React from "react"
 import { useState,useRef } from "react"
 
 
-
+  
 export default function Dashboard() {
   const nameref = useRef()
 const descriptionref = useRef()
@@ -15,11 +15,12 @@ const handleclick = async (event) => {
   event.preventDefault();
 
   const formData = new FormData();
-  formData.append('name', nameref);
-  formData.append('description', descriptionref);
-  formData.append('category', categoryref);
-  formData.append('price', priceref);
+  formData.append('name', nameref.current.value);
+  formData.append('description', descriptionref.current.value);
+  formData.append('category', categoryref.current.value);
+  formData.append('price', priceref.current.value);
   formData.append('picture', img);
+
 console.log(formData)
 await fetch('http://localhost:6001/pic', {
     method: 'POST',
