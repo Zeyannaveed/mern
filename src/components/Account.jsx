@@ -14,7 +14,7 @@ useEffect(() => {
 }, [])
 
   return (
-    <div className='absolute  right-0 background px-4 rounded-xl -mt-6 py-4 mr-10'>
+    <div className='absolute  right-0 background px-4 rounded-xl max-md:mr-20 py-4 mr-10'>
   
       {!Account ? <span  ><Link to={"/signup"}><h5 className='hover:bg-orange-dark rounded px-2 py-1'>Sign Up</h5></Link><Link to={"/Login"}><h5 className='hover:bg-orange-dark rounded px-2 py-1'>Login in</h5></Link></span>  :  <Link to={"/"}><h5 onClick={dlt} className='hover:bg-orange-dark rounded px-2 py-1'>Logout</h5></Link> }
         

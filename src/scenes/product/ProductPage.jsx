@@ -59,12 +59,14 @@ setTimeout(function () {
 <div className="cont  bg-white">
 {products.length > 0 ? (
     <div>
+      <img className='w-72 max-md:mt-8 m-auto md:hidden  ml-8 mr-16' src={`http://localhost:6001/${products[0].img}`} alt="" />
     <div className="main flex mt-16">
-      <div className="img ">
-        <img className='w-72 ml-8 mr-16' src={`http://localhost:6001/${products[0].img}`} alt="" />
+      <div className="img">
+
+        <img className='w-72 max-md:hidden  ml-8 mr-16' src={`http://localhost:6001/${products[0].img}`} alt="" />
       </div>
-      <main className='w-[60%]'>
-      <h1 className='font-extrabold text-2xl'>{products[0].name}</h1>
+      <main className='max-md:m-auto w-[60%]'>
+      <h1 className=' max-md:w-fit font-extrabold text-2xl'>{products[0].name}</h1>
       <p className='font-bold text-base mt-2'>Category:<span className='text-orange-dark'> {products[0].catagory}</span></p>
       <p className='mt-4'>Description: {products[0].description.slice(0,200)}</p>
     
@@ -80,9 +82,9 @@ Product added to cart.
       
       </main>
       </div>
-      <div className="gg">
+      <div className="gg mb-10">
         <h2 className='font-extrabold text-2xl mt-4 ml-12 mb-4'>Description:-</h2>
-      <p className='ml-12 mr-40'>{products[0].description}</p>
+      <p className='ml-12 max-md:mr-20 mr-40'>{products[0].description}</p>
 
       </div>
     </div>

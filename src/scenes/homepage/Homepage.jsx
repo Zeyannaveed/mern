@@ -35,10 +35,10 @@ fetchdata()
 
   return (
     <>
-      <div className="pl-3 ">
-        <img src={mainheader} className='max-md:hidden' alt="" />
+      <div className="pl-3">
+        <img src={mainheader} className='w-[95%] max-md:hidden' alt="" />
         <h3 className="font-bold max-md:hidden mb-5 text-2xl">Popular categories</h3>
-        <div className="icons flex gap-6 max-md:hidden">
+        <div className="icons flex gap-4 max-md:hidden">
         <Link state={{ catagory: "laptop" }} to="/catagory">
         <Icons link={laptop}/>
         </Link>

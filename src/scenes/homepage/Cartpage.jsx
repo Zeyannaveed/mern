@@ -32,7 +32,7 @@ const responseData = await response.json()
     <>
       { data && data.length > 0 ? (
         
-        <div className='bg-white m-auto rounded-2xl mt-4 mb-4 p-4 w-[50%]'>
+        <div className='bg-white max-md:w-[80%] m-auto rounded-2xl mt-4 mb-4 p-4 w-[50%]'>
           {data.map((products) => (
             <div
               key={products.products._id}
