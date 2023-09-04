@@ -35,10 +35,10 @@ fetchdata()
 
   return (
     <>
-      <div className="pl-3">
-        <img src={mainheader} alt="" />
-        <h3 className="font-bold mb-5 text-2xl">Popular categories</h3>
-        <div className="icons flex gap-6 ">
+      <div className="pl-3 ">
+        <img src={mainheader} className='max-md:hidden' alt="" />
+        <h3 className="font-bold max-md:hidden mb-5 text-2xl">Popular categories</h3>
+        <div className="icons flex gap-6 max-md:hidden">
         <Link state={{ catagory: "laptop" }} to="/catagory">
         <Icons link={laptop}/>
         </Link>
@@ -71,7 +71,7 @@ fetchdata()
         {Product?.length > 0 ? (
         <div className="">
           {Product.map((images) => (
-            <div className=" flex justify-center">
+            <div className="max-md:flex max-md:ml-auto max-md:mr-auto max-md:justify-center max-md:flex-col flex justify-center">
            { images.products.map( (df) =>(
               <Hotproducts key={df._id} product={df} />
             )

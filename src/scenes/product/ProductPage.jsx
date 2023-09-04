@@ -6,6 +6,7 @@ export default function ProductPage() {
     const {productId} = useParams()
 
     const [products, setproducts] = useState([])
+    const [isLoading, setisLoading] = useState(false)
 
 const fetchdata = useCallback(
  async () => {
@@ -21,6 +22,31 @@ const fetchdata = useCallback(
   [productId],
 )
 
+const handleclick = async()=>{
+const response = await fetch('http://localhost:6001/home/cartadd',{
+                     method:'POST',
+
+                     headers: {
+                        'Content-Type': 'application/json',
+                        'ath_token':localStorage.getItem('ath_token')
+                      },
+                      body: JSON.stringify({
+                        productId:products[0]._id
+                      }),
+                  });
+
+response.json()
+
+setisLoading(true)
+
+setTimeout(function () {
+
+  setisLoading(false)
+
+}, 2000);
+
+
+}
 
    
 
@@ -44,8 +70,13 @@ const fetchdata = useCallback(
     
       <p className='mt-6'><span className='font-extrabold text-4xl text-custom'>${products[0].price}</span></p>
 
-      <button className='mt-2 orange pl-6 pr-6 pt-3 pb-3 text-base text-white'><a href="">Add to card</a></button>
-      <p>ID: {products[0]._id}</p>
+      <button  onClick={handleclick} className='mt-2 orange pl-6 pr-6 pt-3 pb-3 text-base text-white'>Add to card</button>
+      
+      {isLoading &&
+        <h6 className='text-red-600 font-bold'>
+Product added to cart.
+        </h6>
+      }
       
       </main>
       </div>

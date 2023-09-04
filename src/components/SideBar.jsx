@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function SideBar() {
   return (
-    <div className="h-auto  w-[18%] background">
+    <div className="h-auto min-h-screen  max-md:hidden w-[18%] background">
       <div>
         <h4 className="font-bold  bg-grey-light w-fit pl-4 pr-14 py-1 rounded-xl ml-3 mt-4 mb-3 text-orange-dark text-lg">
           Categories

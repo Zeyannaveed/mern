@@ -18,7 +18,8 @@ const [Password, setPassword] = useState('')
   const passwordref = useRef()
   
   
-  const  handleclick = async()=>{
+  const  handleclick = async(e)=>{
+    e.preventDefault()
     const data ={
       name:"ahmed",
       email:emailref.current.value,
@@ -28,7 +29,9 @@ const [Password, setPassword] = useState('')
       method: "POST",
       headers:{"Content-Type":"application/json"},
       body: JSON.stringify(data)
-    }).then(res => res.json()).then( gg=>localStorage.setItem("ath_token",gg.ath_token))
+    })
+    .then(res => res.json())
+    .then( gg=>localStorage.setItem("ath_token",gg.ath_token))
 
   }
   return (

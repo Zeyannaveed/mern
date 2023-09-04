@@ -10,13 +10,15 @@ import Dashboard from "./scenes/dashboard/Dashboard.jsx";
 import Image from "./scenes/dashboard/Image.jsx";
 import ProductPage from "./scenes/product/ProductPage.jsx";
 import Catagorypage from "./scenes/homepage/Catagorypage.jsx";
+import Item from "./scenes/homepage/Item.jsx"
+import Cartpage from "./scenes/homepage/Cartpage.jsx";
+import Checkout from "./scenes/homepage/Checkout.jsx";
 
 function App() {
 
   return (
     <div className="App bg-grey-bg w-full h-full ">
   <Navbar />
-  
   <hr />
   <div className="flex">
   <SideBar/>
@@ -28,6 +30,9 @@ function App() {
   <Route path="/image" element={<Image/>}/>
   <Route path="/product/:productId" element={<ProductPage/>}/>
   <Route path="/catagory" element={<Catagorypage />}/>
+  <Route path="/search" element={<Item />}/>
+  <Route path="/cart" element={<Cartpage />}/>
+  <Route path="/checkout" element={<Checkout />}/>
 </Routes>
 </div>
     </div>
