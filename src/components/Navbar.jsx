@@ -5,7 +5,7 @@ import cartimg from "../cartimg.png";
 import accountimg from "../accountimg.png";
 import Account from "./Account";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 // import { BrowserRouter as Router,Link } from 'react-router-dom'
@@ -19,9 +19,12 @@ export default function Navbar() {
   function notdisplayit() {
     setdisplay(false);
   }
+  let navigate = useNavigate()
 
-  const searchfunc = ()=>{
-
+  const searchfunc = (e)=>{
+if(e.key==="Enter"){
+navigate("/search",{state:{search:inputdata}})
+}
 
   }
 
@@ -46,6 +49,7 @@ export default function Navbar() {
           onChange={(e) => {
             setinputdata(e.target.value);
           }}
+          onKeyPress={searchfunc}
           type="text"
           size=""
           className="input max-md:-ml-20 h-10 rounded-tl-lg rounded-bl-lg p-2 text-base border text-white "
@@ -53,7 +57,7 @@ export default function Navbar() {
         />
         <span className="orange cursor-pointer rounded-tr-lg rounded-br-lg">
           <Link state={{ search: inputdata }} to="/search">
-
+            
             <img
               src={searchicon}
               onClick={searchfunc}

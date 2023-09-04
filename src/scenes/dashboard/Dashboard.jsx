@@ -22,7 +22,7 @@ const handleclick = async (event) => {
   formData.append('picture', img);
 
 console.log(formData)
-await fetch('http://localhost:6001/pic', {
+await fetch(`${process.env.REACT_APP_API_URL}pic`, {
     method: 'POST',
     body: formData
   })

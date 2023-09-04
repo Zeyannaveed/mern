@@ -16,7 +16,7 @@ const [Product, setProduct] = useState([])
 const fetchdata = useCallback(
     async () => {
 
-        const response = await fetch('http://localhost:6001/home/search',{
+        const response = await fetch(`${process.env.REACT_APP_API_URL}home/search `,{
                      method:'POST',
                      headers: {
                         'Content-Type': 'application/json',

@@ -20,7 +20,7 @@ export default function Homepage() {
 
   const fetchdata = async ()=>{
     try {
-      const response = await fetch('http://localhost:6001/home');
+      const response = await fetch(`${process.env.REACT_APP_API_URL}home`);
       
       const gg = await response.json();
       setProduct(gg)

@@ -7,7 +7,6 @@ import SignUp from "./scenes/auth/SignUp.jsx";
 import Homepage from "./scenes/homepage/Homepage.jsx";
 import SideBar from "./components/SideBar.jsx";
 import Dashboard from "./scenes/dashboard/Dashboard.jsx";
-import Image from "./scenes/dashboard/Image.jsx";
 import ProductPage from "./scenes/product/ProductPage.jsx";
 import Catagorypage from "./scenes/homepage/Catagorypage.jsx";
 import Item from "./scenes/homepage/Item.jsx"
@@ -27,7 +26,6 @@ function App() {
   <Route path="/login" element={<Login/>} />
   <Route path="/signup" element={<SignUp/>}/>
   <Route path="/dashboard" element={<Dashboard/>}/>
-  <Route path="/image" element={<Image/>}/>
   <Route path="/product/:productId" element={<ProductPage/>}/>
   <Route path="/catagory" element={<Catagorypage />}/>
   <Route path="/search" element={<Item />}/>

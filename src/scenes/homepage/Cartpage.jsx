@@ -7,7 +7,7 @@ export default function Cartpage() {
 
   const handleclick = async () => {
     try {
-      const response = await fetch('http://localhost:6001/home/cart', {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}home/cart`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -41,7 +41,7 @@ const responseData = await response.json()
               <div className="img w-1/4">
                 <img
                   className='w-[80%] '
-                  src={`http://localhost:6001/${products.products.img}`}
+                  src={`${process.env.REACT_APP_API_URL}${products.products.img}`}
                   alt=""
                 />
               </div>

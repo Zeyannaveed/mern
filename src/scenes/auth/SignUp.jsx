@@ -27,7 +27,7 @@ const [Name,setName] = useState('')
       email:emailref.current.value,
       password:passwordref.current.value
     }
-    await fetch("http://localhost:6001/ap/signup",{
+    await fetch(`${process.env.REACT_APP_API_URL}ap/signup`,{
       method: "POST",
       headers:{"Content-Type":"application/json"},
       body: JSON.stringify(data)
