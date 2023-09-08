@@ -62,7 +62,7 @@ setTimeout(function () {
       <img className='w-72 max-md:mt-8 m-auto md:hidden  ml-8 mr-16' src={`${process.env.REACT_APP_IMG}${products[0].img}`} alt="" />
     <div className="main flex mt-16">
       <div className="img">
-        <img className='w-72 max-md:hidden  ml-8 mr-16' src={`${process.env.REACT_APP_API_URL}${products[0].img}`} alt="" />
+        <img className='w-72 max-md:hidden  ml-8 mr-16' src={`${process.env.REACT_APP_IMG}${products[0].img}`} alt="" />
       </div>
       <main className='max-md:m-auto w-[60%]'>
       <h1 className=' max-md:w-fit font-extrabold text-2xl'>{products[0].name}</h1>
