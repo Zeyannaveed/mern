@@ -7,7 +7,7 @@ export default function Hotproducts({product:{_id,img,name,price,catagory},}) {
 
     <>
     <div key={_id} className='bg-white p-4 rounded-xl w-80 m-3'>
-        <img src={`http://localhost:6001/${img}`} className="h-60" alt="" />
+        <img src={`${process.env.REACT_APP_IMG}${img}`} className="h-60" alt="" />
     <Link to={`/product/${_id}`}>
         <h1 className='font-semibold text-xl mt-2'>
  {name}
