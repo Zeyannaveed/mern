@@ -22,6 +22,7 @@ const [Name,setName] = useState('')
   
   
   const  handleclick = async(e)=>{
+    e.preventDefault();
     const data ={
       name:nameref.current.value,
       email:emailref.current.value,
