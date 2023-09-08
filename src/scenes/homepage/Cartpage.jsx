@@ -41,7 +41,7 @@ const responseData = await response.json()
               <div className="img w-1/4">
                 <img
                   className='w-[80%] '
-                  src={`${process.env.REACT_APP_API_URL}${products.products.img}`}
+                  src={`${process.env.REACT_APP_IMG}${products.products.img}`}
                   alt=""
                 />
               </div>
