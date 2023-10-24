@@ -71,11 +71,11 @@ const responseData = await response.json()
 
         
           ))}
-            <Link to={'/checkout'}>
+            
           <div className='flex'>
         <button onClick={handleCheckout} className='bg-orange-dark pl-4 pr-4 pt-2 pb-2 text-white rounded-2xl ml-auto'>Proceed to check out</button>
         </div>
-        </Link>
+  
         </div>
       ) : (
         <div>Loading
