@@ -7,7 +7,7 @@ export default function Cartpage() {
 
   const handleCheckout = async()=>{
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}create-checkout-session`, {
+      const response = await fetch(`http://localhost:6001/create-checkout-session`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -30,6 +30,10 @@ export default function Cartpage() {
           'Content-Type': 'application/json',
           'ath_token': localStorage.getItem('ath_token'),
         },
+      }).then((res)=>{
+if(res.data.url){
+  window.location.href = res.data.url
+}
       });
 
 const responseData = await response.json()
