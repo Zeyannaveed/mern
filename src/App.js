@@ -12,6 +12,8 @@ import Catagorypage from "./scenes/homepage/Catagorypage.jsx";
 import Item from "./scenes/homepage/Item.jsx"
 import Cartpage from "./scenes/homepage/Cartpage.jsx";
 import Checkout from "./scenes/homepage/Checkout.jsx";
+import Success from "./scenes/stripe/success.jsx";
+import Cancel from "./scenes/stripe/Cancel.jsx";
 
 function App() {
 
@@ -31,6 +33,8 @@ function App() {
   <Route path="/search" element={<Item />}/>
   <Route path="/cart" element={<Cartpage />}/>
   <Route path="/checkout" element={<Checkout />}/>
+  <Route path="/success" element={<Success />}/>
+  <Route path="/cancel" element={<Cancel />}/>
 </Routes>
 </div>
     </div>
