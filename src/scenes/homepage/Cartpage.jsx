@@ -13,6 +13,10 @@ export default function Cartpage() {
           'Content-Type': 'application/json',
           'ath_token': localStorage.getItem('ath_token'),
         },
+      }).then((res)=>{
+        if(res.data.url){
+          window.location.href = res.data.url
+        }
       });
       const responseData = await response.json()
       console.log(responseData)
@@ -30,10 +34,6 @@ export default function Cartpage() {
           'Content-Type': 'application/json',
           'ath_token': localStorage.getItem('ath_token'),
         },
-      }).then((res)=>{
-if(res.data.url){
-  window.location.href = res.data.url
-}
       });
 
 const responseData = await response.json()
