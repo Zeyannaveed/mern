@@ -5,6 +5,23 @@ export default function Cartpage() {
 
   const [data, setdata] = useState([]);
 
+  const handleCheckout = async()=>{
+    try {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}create-checkout-session`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'ath_token': localStorage.getItem('ath_token'),
+        },
+      });
+      const responseData = await response.json()
+      console.log(responseData)
+    }
+      catch(err){
+        console.log(err)
+      }
+
+  }
   const handleclick = async () => {
     try {
       const response = await fetch(`${process.env.REACT_APP_API_URL}home/cart`, {
@@ -56,7 +73,7 @@ const responseData = await response.json()
           ))}
             <Link to={'/checkout'}>
           <div className='flex'>
-        <button className='bg-orange-dark pl-4 pr-4 pt-2 pb-2 text-white rounded-2xl ml-auto'>Proceed to check out</button>
+        <button onClick={handleCheckout} className='bg-orange-dark pl-4 pr-4 pt-2 pb-2 text-white rounded-2xl ml-auto'>Proceed to check out</button>
         </div>
         </Link>
         </div>
