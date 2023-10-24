@@ -7,20 +7,42 @@ export default function Cartpage() {
 
   const handleCheckout = async()=>{
     try {
-      const response = await fetch(`http://localhost:6001/create-checkout-session`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'ath_token': localStorage.getItem('ath_token'),
-        },
-      }).then((res)=>{
-        console.log(res.json())
-return res.json()
-      })
-      .then(({url})=>{
-window.location = url
-      });
+//       const response = await fetch(`http://localhost:6001/create-checkout-session`, {
+//         method: 'POST',
+//         headers: {
+//           'Content-Type': 'application/json',
+//           'ath_token': localStorage.getItem('ath_token'),
+//         },
+//       }).then((res)=>{
+//         console.log(res.json())
+// return res.json()
+//       })
+//       .then(({url})=>{
+// window.location = url
+//       });
+const response = await fetch('http://localhost:6001/create-checkout-session', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'auth_token': localStorage.getItem('ath_token'),
+  },
+});
+
+if (response.ok) {
+  const data = await response.json();
+  console.log(data)
+  const url = data.url;
+
+  if (url) {
+    window.location = url;
+  } else {
+    console.error("No 'url' found in the response.");
+  }
+} else {
+  console.error("Failed to fetch the data.");
+}
       
+
       
     }
       catch(err){
