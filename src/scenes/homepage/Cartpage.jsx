@@ -14,12 +14,11 @@ export default function Cartpage() {
           'ath_token': localStorage.getItem('ath_token'),
         },
       }).then((res)=>{
+        console.log(res)
         if(res.data.url){
           window.location.href = res.data.url
         }
       });
-      const responseData = await response.json()
-      console.log(responseData)
     }
       catch(err){
         console.log(err)
