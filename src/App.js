@@ -12,7 +12,7 @@ import Catagorypage from "./scenes/homepage/Catagorypage.jsx";
 import Item from "./scenes/homepage/Item.jsx"
 import Cartpage from "./scenes/homepage/Cartpage.jsx";
 import Checkout from "./scenes/homepage/Checkout.jsx";
-import Success from "./scenes/stripe/success.jsx";
+import Success from "./scenes/stripe/Success.jsx";
 import Cancel from "./scenes/stripe/Cancel.jsx";
 
 function App() {
